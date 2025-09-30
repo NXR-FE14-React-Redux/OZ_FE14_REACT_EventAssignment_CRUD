@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { Input } from "./components/ui/input";
+import { Textarea } from "./components/ui/textarea";
+import { Button } from "./components/ui/button";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -49,12 +51,12 @@ function App() {
           onChange={(e) => setTitle(e.target.value)}
           className=""
         />
-        <textarea
+        <Textarea
           placeholder="내용"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        <button onClick={addPost}>작성</button>
+        <Button onClick={addPost}>작성</Button>
       </div>
 
       {/* 글 목록 */}
