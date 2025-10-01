@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { usePosts } from "@/hooks/usePost";
 import { ROUTES } from "@/router";
 import React from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const PostPage = () => {
   const { title, content, setTitle, setContent, addPost } = usePosts();
@@ -55,7 +55,9 @@ const PostPage = () => {
 
       {/* 버튼 */}
       <div className="flex justify-between">
-        <Button className="bg-red-500 hover:bg-red-300 ">돌아가기</Button>
+        <Link to={ROUTES.ROOT}>
+          <Button className="bg-red-500 hover:bg-red-300 ">돌아가기</Button>
+        </Link>
         <Button
           onClick={handleSubmit}
           className="bg-indigo-500 hover:bg-indigo-300"
