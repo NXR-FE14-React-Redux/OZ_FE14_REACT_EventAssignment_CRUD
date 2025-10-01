@@ -11,21 +11,29 @@ import React from "react";
 
 const HomePage = () => {
   const { posts, deletePost } = usePosts();
+
   return (
-    <div className="max-w-3xl mx-auto mt-10 space-y-4">
+    <div className="max-w-4xl w-full mx-auto mt-10 space-y-4 px-4">
       {posts.length === 0 && (
-        <p className="text-center text-gray-500">아직 작성된 글이 없습니다.</p>
+        <div className="flex items-center justify-center min-h-[50vh]">
+          <p className="text-center text-gray-500">
+            아직 작성된 글이 없습니다.
+          </p>
+        </div>
       )}
 
       {posts.map((post) => (
-        <Card key={post.id} className="border">
+        <Card key={post.id} className="border w-full">
           <CardHeader>
-            <CardTitle className="text-lg font-semibold">
-              {post.title}
-            </CardTitle>
+            <div className="flex items-baseline justify-between">
+              <CardTitle className="text-lg font-semibold">
+                {post.title}
+              </CardTitle>
+              <span className="text-xs text-muted-foreground">{post.date}</span>
+            </div>
           </CardHeader>
           <CardContent>
-            <p>{post.content}</p>
+            <p className="whitespace-pre-line">{post.content}</p>
           </CardContent>
           <CardFooter className="flex justify-end">
             <Button

@@ -15,7 +15,10 @@ const NavBar = () => {
         {/* 오른쪽 버튼 */}
         <div className="ml-auto">
           <Link to={ROUTES.POST}>
-            <Button variant="default" className="px-4 py-2 text-sm font-medium">
+            <Button
+              variant="default"
+              className="px-4 py-2 text-sm font-medium bg-indigo-500 hover:bg-indigo-300"
+            >
               글쓰기
             </Button>
           </Link>

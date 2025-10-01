@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
 
@@ -21,7 +22,7 @@ export function usePosts() {
       id: nanoid(), // 간단한 unique id
       title,
       content,
-      date: Date.now(),
+      date: dayjs().format("YYYY-MM-DD HH:mm"),
     };
     setPosts([...posts, newPost]);
     setTitle("");
