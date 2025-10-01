@@ -4,9 +4,11 @@ import NavBar from "./widgets/NavBar";
 
 const Layout = () => {
   return (
-    <div className="w-[100vw]">
+    <div className="w-[100vw] min-h-screen">
       <NavBar />
-      <Outlet />
+      <div className="">
+        <Outlet />
+      </div>
     </div>
   );
 };
