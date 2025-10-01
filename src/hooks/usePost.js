@@ -42,5 +42,6 @@ export function usePosts() {
     setContent,
     addPost,
     deletePost,
+    setPosts,
   };
 }

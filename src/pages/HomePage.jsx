@@ -7,7 +7,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { usePosts } from "@/hooks/usePost";
+import { ROUTES } from "@/router";
 import React from "react";
+import { Link } from "react-router";
 
 const HomePage = () => {
   const { posts, deletePost } = usePosts();
@@ -23,28 +25,32 @@ const HomePage = () => {
       )}
 
       {posts.map((post) => (
-        <Card key={post.id} className="border w-full">
-          <CardHeader>
-            <div className="flex items-baseline justify-between">
-              <CardTitle className="text-lg font-semibold">
-                {post.title}
-              </CardTitle>
-              <span className="text-xs text-muted-foreground">{post.date}</span>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <p className="whitespace-pre-line">{post.content}</p>
-          </CardContent>
-          <CardFooter className="flex justify-end">
-            <Button
-              variant="destructive"
-              size="sm"
-              onClick={() => deletePost(post.id)}
-            >
-              삭제
-            </Button>
-          </CardFooter>
-        </Card>
+        <Link key={post.id} to={ROUTES.DETAIL(post.id)}>
+          <Card className="border w-full">
+            <CardHeader>
+              <div className="flex items-baseline justify-between">
+                <CardTitle className="text-lg font-semibold">
+                  {post.title}
+                </CardTitle>
+                <span className="text-xs text-muted-foreground">
+                  {post.date}
+                </span>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="whitespace-pre-line">{post.content}</p>
+            </CardContent>
+            <CardFooter className="flex justify-end">
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={() => deletePost(post.id)}
+              >
+                삭제
+              </Button>
+            </CardFooter>
+          </Card>
+        </Link>
       ))}
     </div>
   );

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Layout from "./Layout";
 import HomePage from "./pages/HomePage";
 import PostPage from "./pages/PostPage";
+import DetailPage from "./pages/DetailPage";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
       {
         path: "post",
         element: <PostPage />,
+      },
+      {
+        path: ":id",
+        element: <DetailPage />,
       },
     ],
   },
